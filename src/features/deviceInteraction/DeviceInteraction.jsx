@@ -86,7 +86,6 @@ function Volcano() {
     }, [onClick]);
 
     const clickHandler = (e) => {
-        e.preventDefault();
         onClick(!isFanOn);
     };
 
@@ -95,13 +94,15 @@ function Volcano() {
             <Div>
                 <CurrentTemperature />
                 <CurrentTargetTemperature />
-                <WriteTemperature />
-                <WorkFlow />
-                <TargetTemperatureRange />
-                <div className="heat-air-div">
-                    <HeatOn />
-                    <FanOn fanOnRef={fanOnRef} onChange={onClick} isFanOn={isFanOn} />
-                </div>
+                <span onClick={(e) => e.stopPropagation()}>
+                    <WriteTemperature />
+                    <WorkFlow />
+                    <TargetTemperatureRange />
+                    <div className="heat-air-div">
+                        <HeatOn />
+                        <FanOn fanOnRef={fanOnRef} onChange={onClick} isFanOn={isFanOn} onClick={clickHandler} />
+                    </div>
+                </span>
             </Div>
         </Container>
     );
