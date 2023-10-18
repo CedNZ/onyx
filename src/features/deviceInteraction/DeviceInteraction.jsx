@@ -1,3 +1,4 @@
+import AutoOff from "./AutoOff/AutoOff";
 import HeatOn from "./HeatOn/HeatOnContainer";
 import FanOn from "./FanOn/FanOnContainer";
 import CurrentTemperature from "./CurrentTemperature/CurrentTemperatureContainer";
@@ -92,6 +93,7 @@ function Volcano() {
     return (
         <Container style={{ display: "flex" }} onClick={clickHandler}>
             <Div>
+                <AutoOff />
                 <CurrentTemperature />
                 <CurrentTargetTemperature />
                 <span onClick={(e) => e.stopPropagation()}>
